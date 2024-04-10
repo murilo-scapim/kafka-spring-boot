@@ -1,6 +1,7 @@
 package com.app.controller;
 
 import com.app.dto.ShopDTO;
+import com.app.events.KafkaClient;
 import com.app.model.Shop;
 import com.app.model.ShopItem;
 import com.app.repository.ShopRepository;
@@ -18,6 +19,7 @@ import java.util.stream.Collectors;
 public class ShopController {
 
     private final ShopRepository shopRepository;
+    private final KafkaClient kafkaClient;
 
     @GetMapping
     public List<ShopDTO> getShop() {
@@ -38,6 +40,8 @@ public class ShopController {
         for (ShopItem shopItem : shop.getItems()) {
             shopItem.setShop(shop);
         }
-        return ShopDTO.convert(shopRepository.save(shop));
+        shopDTO = ShopDTO.convert(shopRepository.save(shop));
+        kafkaClient.sendMessage(shopDTO);
+        return shopDTO;
     }
 }
