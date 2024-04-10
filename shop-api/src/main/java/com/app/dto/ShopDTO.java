@@ -20,7 +20,7 @@ public class ShopDTO {
 
     public static ShopDTO convert(Shop shop) {
         ShopDTO shopDTO = new ShopDTO();
-        shopDTO.setIdentifier(shop.getIndentifier());
+        shopDTO.setIdentifier(shop.getIdentifier());
         shopDTO.setDateShop(shop.getDateShop());
         shopDTO.setStatus(shop.getStatus());
         shopDTO.setItems(shop

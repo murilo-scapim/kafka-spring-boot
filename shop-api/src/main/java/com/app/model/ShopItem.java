@@ -15,7 +15,7 @@ public class ShopItem {
     private Long id;
 
     @Column(name = "product_identifier")
-    private String productIndentifier;
+    private String productIdentifier;
 
     private Integer amount;
 
@@ -27,7 +27,7 @@ public class ShopItem {
 
     public static ShopItem convert(ShopItemDTO shopItemDTO) {
         ShopItem shopItem = new ShopItem();
-        shopItem.setProductIndentifier(
+        shopItem.setProductIdentifier(
                 shopItemDTO.getProductIdentifier());
         shopItem.setAmount(shopItemDTO.getAmount());
         shopItem.setPrice(shopItemDTO.getPrice());

@@ -15,7 +15,7 @@ public class ShopItemDTO {
     public static ShopItemDTO convert(ShopItem shopItem) {
         ShopItemDTO shopItemDTO = new ShopItemDTO();
         shopItemDTO.setProductIdentifier(
-                shopItem.getProductIndentifier());
+                shopItem.getProductIdentifier());
         shopItemDTO.setAmount(shopItem.getAmount());
         shopItemDTO.setPrice(shopItem.getPrice());
         return shopItemDTO;
